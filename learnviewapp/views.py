@@ -1,3 +1,13 @@
 from django.shortcuts import render
+from rest_framework.generics import ListAPIView,RetrieveAPIView,RetrieveUpdateAPIView,CreateAPIView,DestroyAPIView
+from learnviewapp.serializers import PostMediaSerializer
+from learnviewapp.models import PostMedia
 
-# Create your views here.
+class PostCreateAPIView(CreateAPIView):
+    queryset = PostMedia.objects.all()
+    serializer_class =  PostMediaSerializer
+
+class PostListAPIView(ListAPIView):
+    queryset = PostMedia.objects.all()
+    serializer_class = PostMediaSerializer
+   
